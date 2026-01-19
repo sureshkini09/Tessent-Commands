@@ -48,3 +48,9 @@ create_patterns
 set_test_logic -reset on -set on -clock on
 ```
 
+
+## test-point insertion
+```
+analyze_test_points
+insert_test_points
+```
