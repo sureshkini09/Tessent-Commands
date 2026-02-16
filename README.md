@@ -8,8 +8,12 @@ set_context dft -scan
 read_verilog design.v
 read_cell_library atgplib.mdt 
 set_current_design <top_module>
+set_design_level <top, chip, physical_block, sub_block or instrument_block>
 analyze_control_signals -auto
+#add_clocks 0 clk
+#add_clocks 1 reset
 check_design_rules
+set_scan_insertion_options -chain_count 10 -chain_length 10
 analyze_scan_chains 
 insert_test_logic -write_in_tsdb on 
 
@@ -41,7 +45,20 @@ add_faults -all
 create_patterns
 ```
 
-
+## Create new port
+```
+set_system_mode insertion
+create_port <port_name> -direction input/output
+```
+```
+#example
+set_system_mode insertion
+create_port test_mode -direction input
+create_poer scan_enable -direction input
+set_system_mode setup
+add_input_constraints -c1 test_mode
+set_scan_enable scan_enable -active high
+```
 
 ## Add reset synchronizers 
 ```
