@@ -71,3 +71,8 @@ set_test_logic -reset on -set on -clock on
 analyze_test_points
 insert_test_points
 ```
+
+## use the above command to list the details of a rule violation.
+```
+report_drc_rules
+```
