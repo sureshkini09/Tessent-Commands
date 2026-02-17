@@ -76,3 +76,7 @@ insert_test_points
 ```
 report_drc_rules
 ```
+## to open in visualizer 
+```
+analyze_drc_violation <vio no.>
+```
